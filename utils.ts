@@ -10,3 +10,15 @@ export const getInput = async (pathname: string) => {
     crlfDelay: Infinity,
   });
 };
+
+export const mapFileLines = async <T>(
+  pathname: string,
+  mapper: (line: string, lineNumber: number) => T,
+) => {
+  const reader = await getInput(pathname);
+  let lineCounter = 0;
+  for await (const line of reader) {
+    mapper(line, lineCounter);
+    lineCounter++;
+  }
+};
