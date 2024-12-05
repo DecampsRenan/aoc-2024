@@ -13,9 +13,9 @@ for await (const chunk of reader) {
 left.sort();
 right.sort();
 
-const tuple = left.map((l, i) => {
-  const r = right[i] as number;
-  return Math.abs(l - r);
+const tuple = left.map((l) => {
+  const count = right.filter((r) => r === l).length;
+  return l * count;
 });
 
 console.log(tuple.reduce((acc, v) => acc + v, 0));
