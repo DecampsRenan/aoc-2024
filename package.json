@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd day-01 && tsx ./index-part2.ts"
+    "start": "cd day-02 && tsx ./index.ts"
   },
   "keywords": [],
   "author": "",

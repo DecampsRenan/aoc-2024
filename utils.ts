@@ -17,8 +17,10 @@ export const mapFileLines = async <T>(
 ) => {
   const reader = await getInput(pathname);
   let lineCounter = 0;
+  const result = [];
   for await (const line of reader) {
-    mapper(line, lineCounter);
+    result.push(await Promise.resolve(mapper(line, lineCounter)));
     lineCounter++;
   }
+  return result;
 };
